@@ -1,8 +1,7 @@
 <!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Little Love Puzzle ❤️</title><style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Our Little Love Game ❤️</title><style>
 * {
     box-sizing: border-box;
     margin: 0;
@@ -11,162 +10,331 @@
 
 body {
     min-height: 100vh;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #120014, #30001f, #080008);
+    font-family: Arial, Helvetica, sans-serif;
     color: white;
+    background:
+        radial-gradient(circle at top, #5b0038 0%, transparent 40%),
+        linear-gradient(135deg, #10000d, #260016, #050005);
+
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+
+    padding: 18px;
     overflow-x: hidden;
 }
 
-.container {
-    width: 100%;
-    max-width: 500px;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 25px;
-    padding: 28px 22px;
-    text-align: center;
-    backdrop-filter: blur(15px);
-    box-shadow: 0 0 35px rgba(255,0,120,0.25);
+/* Floating hearts */
+
+.heart-float {
+    position: fixed;
+    bottom: -30px;
+    font-size: 20px;
+    animation: floatHeart linear infinite;
+    opacity: 0.7;
+    pointer-events: none;
 }
 
-.heart {
-    font-size: 55px;
-    animation: heartbeat 1.3s infinite;
+@keyframes floatHeart {
+    from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.8;
+    }
+
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Main card */
+
+.container {
+    width: 100%;
+    max-width: 520px;
+
+    padding: 28px 22px;
+
+    border-radius: 28px;
+
+    background: rgba(255,255,255,0.08);
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 0 40px rgba(255,0,130,0.25),
+        inset 0 0 20px rgba(255,255,255,0.03);
+
+    text-align: center;
+
+    position: relative;
+    z-index: 5;
+}
+
+/* Heart */
+
+.main-heart {
+    font-size: 58px;
+    animation: heartbeat 1.4s infinite;
+    margin-bottom: 8px;
 }
 
 @keyframes heartbeat {
-    0%,100% { transform: scale(1); }
-    50% { transform: scale(1.18); }
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
 }
 
 h1 {
-    margin: 10px 0;
-    color: #ff4fa3;
+    color: #ff5eae;
+    margin-bottom: 12px;
+    font-size: 30px;
 }
 
 .subtitle {
-    color: #ddd;
-    margin-bottom: 25px;
-    line-height: 1.5;
+    color: #ead7e2;
+    line-height: 1.6;
+    margin-bottom: 24px;
 }
 
-.progress {
-    margin-bottom: 20px;
-    color: #ff9acb;
-    font-size: 14px;
-}
-
-.question {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 18px;
-    line-height: 1.4;
-}
-
-input {
-    width: 100%;
-    padding: 14px;
-    border-radius: 12px;
-    border: none;
-    outline: none;
-    font-size: 16px;
-    margin-bottom: 14px;
-    background: rgba(255,255,255,0.95);
-    color: #222;
-}
+/* Buttons */
 
 button {
     width: 100%;
-    padding: 14px;
+    padding: 15px;
+
     border: none;
-    border-radius: 12px;
-    background: linear-gradient(90deg, #ff167f, #ff4fa3);
+    border-radius: 14px;
+
     color: white;
+
     font-size: 17px;
     font-weight: bold;
+
     cursor: pointer;
+
+    background:
+        linear-gradient(90deg, #ff087c, #ff4ca3);
+
+    box-shadow: 0 8px 20px rgba(255,0,120,0.25);
+
     transition: 0.2s;
 }
 
 button:hover {
-    transform: scale(1.03);
+    transform: translateY(-2px);
 }
 
 button:active {
     transform: scale(0.97);
 }
 
-.message {
-    min-height: 24px;
-    margin-top: 12px;
-    color: #ff8fbd;
+/* Progress */
+
+.progress {
+    color: #ff9acb;
     font-size: 14px;
+    margin-bottom: 12px;
 }
+
+/* Progress bar */
+
+.progress-container {
+    width: 100%;
+    height: 7px;
+
+    background: rgba(255,255,255,0.12);
+
+    border-radius: 20px;
+
+    margin-bottom: 24px;
+
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+
+    background: linear-gradient(
+        90deg,
+        #ff1685,
+        #ff8ac5
+    );
+
+    border-radius: 20px;
+
+    transition: width 0.4s ease;
+}
+
+/* Question */
+
+.question {
+    font-size: 21px;
+    font-weight: bold;
+
+    line-height: 1.5;
+
+    margin-bottom: 20px;
+
+    color: #fff;
+}
+
+/* Answer */
+
+input {
+    width: 100%;
+
+    padding: 15px;
+
+    border-radius: 13px;
+
+    border: none;
+    outline: none;
+
+    font-size: 16px;
+
+    background: rgba(255,255,255,0.96);
+
+    color: #222;
+
+    margin-bottom: 14px;
+}
+
+input::placeholder {
+    color: #777;
+}
+
+/* Message */
+
+.message {
+    min-height: 25px;
+
+    margin-top: 12px;
+
+    color: #ff9dca;
+
+    font-size: 14px;
+
+    line-height: 1.4;
+}
+
+/* Hidden */
 
 .hidden {
     display: none;
 }
 
-.poem {
-    text-align: left;
-    line-height: 1.8;
-    margin-top: 20px;
-    color: #f7ddea;
-    white-space: pre-line;
-}
+/* Final */
 
 .final-heart {
-    font-size: 65px;
-    margin: 15px 0;
+    font-size: 70px;
+
+    animation: heartbeat 1.4s infinite;
+
+    margin-bottom: 10px;
+}
+
+.poem {
+    margin-top: 20px;
+
+    text-align: left;
+
+    line-height: 1.8;
+
+    color: #f6dce9;
+
+    white-space: pre-line;
+
+    font-size: 16px;
+}
+
+.final-title {
+    color: #ff69b4;
 }
 
 .restart {
-    margin-top: 20px;
-    background: rgba(255,255,255,0.12);
+    margin-top: 25px;
+
+    background:
+        rgba(255,255,255,0.10);
+
+    border: 1px solid rgba(255,255,255,0.15);
 }
 
-.pulse {
-    animation: pulse 1.5s infinite;
+/* Question transition */
+
+.fade {
+    animation: fadeIn 0.4s ease;
 }
 
-@keyframes pulse {
-    50% {
-        box-shadow: 0 0 30px rgba(255,50,150,0.7);
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
-</style></head><body><div class="container pulse"><!-- START SCREEN -->
-<div id="startScreen">
-    <div class="heart">❤️</div>
-
-    <h1>Our Little Love Puzzle</h1>
-
-    <p class="subtitle">
-        Five questions.<br>
-        One special person.<br>
-        And a little surprise waiting at the end. 💕
-    </p>
-
-    <button onclick="startPuzzle()">
-        Start the Puzzle 💌
-    </button>
+</style></head><body><!-- Floating hearts --><div class="heart-float" style="left:8%; animation-duration:9s;">❤️</div>
+<div class="heart-float" style="left:22%; animation-duration:12s;">💕</div>
+<div class="heart-float" style="left:42%; animation-duration:10s;">💗</div>
+<div class="heart-float" style="left:65%; animation-duration:14s;">💖</div>
+<div class="heart-float" style="left:82%; animation-duration:11s;">💘</div><div class="container"><!-- START SCREEN --><div id="startScreen"><div class="main-heart">
+    ❤️
 </div>
 
+<h1>
+    Our Little Love Game
+</h1>
 
-<!-- QUESTION SCREEN -->
-<div id="quizScreen" class="hidden">
+<p class="subtitle">
+    30 questions.<br>
+    A little teasing.<br>
+    A little drama.<br>
+    A lot of love. 💕
+    <br><br>
+    Let's see how well you know
+    <strong>us</strong>.
+</p>
 
-    <div class="heart">💗</div>
+<button onclick="startPuzzle()">
+    Start the Game 💌
+</button>
 
-    <div class="progress" id="progress">
-        Question 1 of 5
+</div><!-- QUIZ SCREEN --><div id="quizScreen" class="hidden"><div class="main-heart">
+    💗
+</div>
+
+<div class="progress" id="progress">
+    Question 1 of 30
+</div>
+
+<div class="progress-container">
+    <div
+        class="progress-bar"
+        id="progressBar">
     </div>
+</div>
 
-    <div class="question" id="question">
-        Question goes here
+<div id="questionArea">
+
+    <div
+        class="question"
+        id="question">
     </div>
 
     <input
@@ -177,175 +345,291 @@ button:active {
     >
 
     <button onclick="submitAnswer()">
-        Unlock Next ❤️
+        Next ❤️
     </button>
 
-    <div class="message" id="message"></div>
+    <div
+        class="message"
+        id="message">
+    </div>
 
 </div>
 
+</div><!-- FINAL SCREEN --><div id="finalScreen" class="hidden"><div class="final-heart">
+    💖
+</div>
 
-<!-- FINAL SCREEN -->
-<div id="finalScreen" class="hidden">
+<h1 class="final-title">
+    You Made It! 🥹❤️
+</h1>
 
-    <div class="final-heart">💖</div>
+<p class="subtitle">
+    30 questions later...
+    and somehow I still want more of you. 😂❤️
+</p>
 
-    <h1>You Made It! 🥹❤️</h1>
 
-    <p class="subtitle">
-        Every answer brought you one step closer...
-    </p>
-
-    <div class="poem">
+<div class="poem">
 
 My love,
 
-Distance may put miles between us,
-but it never learned how to separate two hearts.
+Maybe we're separated by distance,
+but somehow you still manage
+to feel close to my heart.
 
-I miss your random messages,
-your little jokes,
-your voice,
-and all those tiny moments
-that somehow mean so much to me.
+I miss the conversations,
+the random jokes,
+the little moments,
+and even the ridiculous drama
+we sometimes create. 😂❤️
 
-Sometimes I wish I could press a button
-and suddenly be right there beside you.
+If distance could hear us,
+it would probably be tired
+of trying to keep us apart.
 
-But until that day comes,
-I'll keep choosing you,
-even from far away.
+There are days when I wish
+I could simply close the distance,
+sit beside you,
+laugh with you,
+and forget about the kilometres
+between us.
 
-You are more than just someone I talk to.
-You are someone who makes my days brighter,
-my heart softer,
-and my world a little more beautiful.
+Until that day comes,
+I'll keep collecting the little moments
+we create from far away.
+
+Your messages.
+Your jokes.
+Your moods.
+Your beautiful chaos.
+
+And honestly...
+
+I wouldn't trade our story
+for anything.
 
 So whenever you miss me,
-remember this:
+look at the sky,
+smile a little,
+and remember that somewhere out there
+I'm probably thinking about you too. ❤️
 
-No matter how many kilometres are between us,
-you still have a special place in my heart. ❤️
+Thank you for playing my little game.
 
-And yes...
+And congratulations...
 
-You officially survived my little interrogation. 😂❤️
+You survived 30 questions
+without running away. 😂😂❤️
 
-I love you, Mummy. 💕
+Distance may be long,
+
+but my feelings for you
+don't have a distance limit.
+
+❤️
+
+    <strong>— From me to you, with love.</strong>
+
 </div>
 
-    <button class="restart" onclick="restartPuzzle()">
-        Play Again 🔄
-    </button>
 
-</div>
+<button
+    class="restart"
+    onclick="restartPuzzle()">
 
-</div><script>
+    Play Again 🔄
+
+</button>
+
+</div></div><script>
+
+/*
+===========================================
+30 LOVE QUESTIONS
+===========================================
+*/
 
 const questions = [
-    {
-        question: "1️⃣ What is Babes' birthday? 🎂",
-        answers: ["02/06/2009", "2/6/2009", "02-06-2009", "2-6-2009"]
-    },
 
-    {
-        question: "2️⃣ Who am I to you? 👀❤️",
-        answers: []
-    },
+    "😏 What was the first thing about me that caught your attention?",
 
-    {
-        question: "3️⃣ What do you like most about me? 😏💕",
-        answers: []
-    },
+    "😂 Who starts the drama between us more often?",
 
-    {
-        question: "4️⃣ What is my favourite football team? ⚽❤️",
-        answers: ["mancity", "man city", "manchester city", "manchester-city"]
-    },
+    "👀 Who gets jealous more easily?",
 
-    {
-        question: "5️⃣ Who are you to me? 🥹❤️",
-        answers: []
-    }
+    "❤️ What do I do that secretly makes you smile?",
+
+    "🥹 What do you miss most about me?",
+
+    "😏 What's one thing about my personality you find irresistible?",
+
+    "😂 If we spent a whole day together, what trouble would we get into?",
+
+    "💕 What's your favorite memory of us?",
+
+    "👀 If I suddenly appeared beside you, what would you say first?",
+
+    "😂 Who would win an argument between us?",
+
+    "💌 What's one message from me you still remember?",
+
+    "🥹 What's the hardest part about being far away from me?",
+
+    "😈 Who is more likely to start playful trouble?",
+
+    "❤️ What's one thing you never want to change about us?",
+
+    "🎬 If our relationship were a movie, what would you call it?",
+
+    "😂 What's the funniest thing about me?",
+
+    "👀 What nickname would you secretly give me?",
+
+    "💕 What's one thing you wish we could do together right now?",
+
+    "🌹 What would your perfect date with me look like?",
+
+    "🥹 When do you miss me the most?",
+
+    "😂 What's one silly thing you'd probably tease me about forever?",
+
+    "😏 What's something I say that always gets your attention?",
+
+    "❤️ What's one thing that makes our relationship special to you?",
+
+    "👀 If you could teleport to me for one hour, what would we do?",
+
+    "😂 Who would be more dramatic during an argument?",
+
+    "💌 What's one thing you've always wanted to tell me but never did?",
+
+    "🥹 What's one moment with me you'd love to relive?",
+
+    "❤️ Where do you imagine us a year from now?",
+
+    "😏 Describe our relationship using only three words.",
+
+    "💖 Finish this sentence: \"No matter how far apart we are, I...\""
+
 ];
+
 
 let currentQuestion = 0;
 
 
+/*
+===========================================
+START
+===========================================
+*/
+
 function startPuzzle() {
 
-    document.getElementById("startScreen").classList.add("hidden");
+    currentQuestion = 0;
 
-    document.getElementById("quizScreen").classList.remove("hidden");
+    document
+        .getElementById("startScreen")
+        .classList.add("hidden");
+
+    document
+        .getElementById("quizScreen")
+        .classList.remove("hidden");
 
     showQuestion();
 }
 
 
+
+/*
+===========================================
+SHOW QUESTION
+===========================================
+*/
+
 function showQuestion() {
 
-    const q = questions[currentQuestion];
+    const question =
+        document.getElementById("question");
 
-    document.getElementById("progress").textContent =
+    const progress =
+        document.getElementById("progress");
+
+    const progressBar =
+        document.getElementById("progressBar");
+
+    const answer =
+        document.getElementById("answer");
+
+    const message =
+        document.getElementById("message");
+
+
+    question.classList.remove("fade");
+
+    void question.offsetWidth;
+
+    question.classList.add("fade");
+
+
+    question.textContent =
+        questions[currentQuestion];
+
+
+    progress.textContent =
         `Question ${currentQuestion + 1} of ${questions.length}`;
 
-    document.getElementById("question").textContent =
-        q.question;
 
-    document.getElementById("answer").value = "";
+    const percentage =
+        ((currentQuestion + 1) /
+        questions.length) * 100;
 
-    document.getElementById("message").textContent = "";
 
-    document.getElementById("answer").focus();
+    progressBar.style.width =
+        percentage + "%";
+
+
+    answer.value = "";
+
+    message.textContent = "";
+
+    answer.focus();
 }
 
 
+
+/*
+===========================================
+SUBMIT ANSWER
+===========================================
+*/
+
 function submitAnswer() {
 
-    const input =
-        document.getElementById("answer");
-
     const answer =
-        input.value.trim();
+        document
+        .getElementById("answer")
+        .value
+        .trim();
+
+
+    const message =
+        document
+        .getElementById("message");
+
 
     if (answer === "") {
 
-        document.getElementById("message").textContent =
-            "You have to answer first 😏❤️";
+        message.textContent =
+            "Come on 😂❤️ You have to answer this one!";
 
         return;
     }
 
 
-    const q = questions[currentQuestion];
-
-
     /*
-       Questions 2, 3 and 5 accept ANY answer.
-       Questions 1 and 4 require the correct answer.
+    Every question accepts an answer.
+    There are no right or wrong answers.
     */
-
-    if (q.answers.length > 0) {
-
-        const normalized =
-            answer.toLowerCase()
-            .replace(/\s+/g, "");
-
-        const correct =
-            q.answers.some(a =>
-                a.toLowerCase()
-                .replace(/\s+/g, "") === normalized
-            );
-
-        if (!correct) {
-
-            document.getElementById("message").textContent =
-                "Hmmmm... that's not the answer 😏 Try again ❤️";
-
-            return;
-        }
-    }
-
 
     currentQuestion++;
 
@@ -357,47 +641,84 @@ function submitAnswer() {
     } else {
 
         showQuestion();
+
     }
 }
 
 
+
+/*
+===========================================
+FINAL SCREEN
+===========================================
+*/
+
 function showFinal() {
 
-    document.getElementById("quizScreen")
+    document
+        .getElementById("quizScreen")
         .classList.add("hidden");
 
-    document.getElementById("finalScreen")
+
+    document
+        .getElementById("finalScreen")
         .classList.remove("hidden");
 
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 }
 
+
+
+/*
+===========================================
+RESTART
+===========================================
+*/
 
 function restartPuzzle() {
 
     currentQuestion = 0;
 
-    document.getElementById("finalScreen")
+
+    document
+        .getElementById("finalScreen")
         .classList.add("hidden");
 
-    document.getElementById("startScreen")
+
+    document
+        .getElementById("startScreen")
         .classList.remove("hidden");
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 }
 
 
+
 /*
-   Allow ENTER key to submit answers.
+===========================================
+ENTER KEY
+===========================================
 */
 
-document.getElementById("answer")
-.addEventListener("keydown", function(event) {
+document
+    .getElementById("answer")
+    .addEventListener("keydown", function(event) {
 
-    if (event.key === "Enter") {
+        if (event.key === "Enter") {
 
-        submitAnswer();
+            submitAnswer();
 
-    }
+        }
 
-});
+    });
 
 </script></body>
 </html>
