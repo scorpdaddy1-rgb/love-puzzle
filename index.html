@@ -1,119 +1,403 @@
-CTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="theme-color" content="#170019">
-
-		<title>Our Little Secret ❤️</title>
-
-<style>
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Little Love Puzzle ❤️</title><style>
 * {
-	    box-sizing: border-box;
-	        margin: 0;
-		    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-	    min-height: 100vh;
-	        font-family: Arial, sans-serif;
-		    background:
-			            radial-gradient(circle at top, #4a003d 0%, #21001f 40%, #080008 100%);
-		        color: white;
-			    display: flex;
-			        justify-content: center;
-				    align-items: center;
-				        padding: 18px;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #120014, #30001f, #080008);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow-x: hidden;
 }
 
 .container {
-	    width: 100%;
-	        max-width: 520px;
-		    background: rgba(20, 0, 25, 0.94);
-		        border: 1px solid rgba(255, 70, 150, 0.4);
-			    border-radius: 25px;
-			        padding: 28px 20px;
-				    box-shadow: 0 0 35px rgba(255, 0, 120, 0.25);
-				        text-align: center;
+    width: 100%;
+    max-width: 500px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 25px;
+    padding: 28px 22px;
+    text-align: center;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 35px rgba(255,0,120,0.25);
 }
 
 .heart {
-	    font-size: 55px;
-	        margin-bottom: 10px;
-		    animation: beat 1.3s infinite;
+    font-size: 55px;
+    animation: heartbeat 1.3s infinite;
 }
 
-@keyframes beat {
-	    0%, 100% {
-		            transform: scale(1);
-			        }
-
-	        50% {
-			        transform: scale(1.15);
-				    }
+@keyframes heartbeat {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.18); }
 }
 
 h1 {
-	    font-size: 28px;
-	        margin-bottom: 10px;
+    margin: 10px 0;
+    color: #ff4fa3;
 }
 
 .subtitle {
-	    color: #ffafd0;
-	        line-height: 1.6;
-		    margin-bottom: 25px;
-}
-
-.start-screen {
-	    display: block;
-}
-
-.game-screen {
-	    display: none;
-}
-
-.final-screen {
-	    display: none;
+    color: #ddd;
+    margin-bottom: 25px;
+    line-height: 1.5;
 }
 
 .progress {
-	    color: #ff9bc5;
-	        font-size: 14px;
-		    margin-bottom: 15px;
-}
-
-.question-box {
-	    background: rgba(255, 255, 255, 0.06);
-	        border-radius: 18px;
-		    padding: 22px 16px;
-}
-
-.level {
-	    color: #ff5fa8;
-	        font-weight: bold;
-		    font-size: 14px;
-		        letter-spacing: 1px;
-			    margin-bottom: 14px;
+    margin-bottom: 20px;
+    color: #ff9acb;
+    font-size: 14px;
 }
 
 .question {
-	    font-size: 20px;
-	        line-height: 1.55;
-		    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 18px;
+    line-height: 1.4;
 }
 
 input {
-	    width: 100%;
-	        padding: 15px;
-		    margin-top: 15px;
-		        border-radius: 12px;
-			    border: 1px solid #ff4f9a;
-			        background: #11000f;
-				    color: white;
-				        font-size: 16px;
-					    outline: none;
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    margin-bottom: 14px;
+    background: rgba(255,255,255,0.95);
+    color: #222;
 }
 
-input:focus {
-	    box-shadow
+button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #ff167f, #ff4fa3);
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
 
+button:hover {
+    transform: scale(1.03);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+.message {
+    min-height: 24px;
+    margin-top: 12px;
+    color: #ff8fbd;
+    font-size: 14px;
+}
+
+.hidden {
+    display: none;
+}
+
+.poem {
+    text-align: left;
+    line-height: 1.8;
+    margin-top: 20px;
+    color: #f7ddea;
+    white-space: pre-line;
+}
+
+.final-heart {
+    font-size: 65px;
+    margin: 15px 0;
+}
+
+.restart {
+    margin-top: 20px;
+    background: rgba(255,255,255,0.12);
+}
+
+.pulse {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    50% {
+        box-shadow: 0 0 30px rgba(255,50,150,0.7);
+    }
+}
+</style></head><body><div class="container pulse"><!-- START SCREEN -->
+<div id="startScreen">
+    <div class="heart">❤️</div>
+
+    <h1>Our Little Love Puzzle</h1>
+
+    <p class="subtitle">
+        Five questions.<br>
+        One special person.<br>
+        And a little surprise waiting at the end. 💕
+    </p>
+
+    <button onclick="startPuzzle()">
+        Start the Puzzle 💌
+    </button>
+</div>
+
+
+<!-- QUESTION SCREEN -->
+<div id="quizScreen" class="hidden">
+
+    <div class="heart">💗</div>
+
+    <div class="progress" id="progress">
+        Question 1 of 5
+    </div>
+
+    <div class="question" id="question">
+        Question goes here
+    </div>
+
+    <input
+        type="text"
+        id="answer"
+        placeholder="Type your answer..."
+        autocomplete="off"
+    >
+
+    <button onclick="submitAnswer()">
+        Unlock Next ❤️
+    </button>
+
+    <div class="message" id="message"></div>
+
+</div>
+
+
+<!-- FINAL SCREEN -->
+<div id="finalScreen" class="hidden">
+
+    <div class="final-heart">💖</div>
+
+    <h1>You Made It! 🥹❤️</h1>
+
+    <p class="subtitle">
+        Every answer brought you one step closer...
+    </p>
+
+    <div class="poem">
+
+My love,
+
+Distance may put miles between us,
+but it never learned how to separate two hearts.
+
+I miss your random messages,
+your little jokes,
+your voice,
+and all those tiny moments
+that somehow mean so much to me.
+
+Sometimes I wish I could press a button
+and suddenly be right there beside you.
+
+But until that day comes,
+I'll keep choosing you,
+even from far away.
+
+You are more than just someone I talk to.
+You are someone who makes my days brighter,
+my heart softer,
+and my world a little more beautiful.
+
+So whenever you miss me,
+remember this:
+
+No matter how many kilometres are between us,
+you still have a special place in my heart. ❤️
+
+And yes...
+
+You officially survived my little interrogation. 😂❤️
+
+I love you, Mummy. 💕
+</div>
+
+    <button class="restart" onclick="restartPuzzle()">
+        Play Again 🔄
+    </button>
+
+</div>
+
+</div><script>
+
+const questions = [
+    {
+        question: "1️⃣ What is Babes' birthday? 🎂",
+        answers: ["02/06/2009", "2/6/2009", "02-06-2009", "2-6-2009"]
+    },
+
+    {
+        question: "2️⃣ Who am I to you? 👀❤️",
+        answers: []
+    },
+
+    {
+        question: "3️⃣ What do you like most about me? 😏💕",
+        answers: []
+    },
+
+    {
+        question: "4️⃣ What is my favourite football team? ⚽❤️",
+        answers: ["mancity", "man city", "manchester city", "manchester-city"]
+    },
+
+    {
+        question: "5️⃣ Who are you to me? 🥹❤️",
+        answers: []
+    }
+];
+
+let currentQuestion = 0;
+
+
+function startPuzzle() {
+
+    document.getElementById("startScreen").classList.add("hidden");
+
+    document.getElementById("quizScreen").classList.remove("hidden");
+
+    showQuestion();
+}
+
+
+function showQuestion() {
+
+    const q = questions[currentQuestion];
+
+    document.getElementById("progress").textContent =
+        `Question ${currentQuestion + 1} of ${questions.length}`;
+
+    document.getElementById("question").textContent =
+        q.question;
+
+    document.getElementById("answer").value = "";
+
+    document.getElementById("message").textContent = "";
+
+    document.getElementById("answer").focus();
+}
+
+
+function submitAnswer() {
+
+    const input =
+        document.getElementById("answer");
+
+    const answer =
+        input.value.trim();
+
+    if (answer === "") {
+
+        document.getElementById("message").textContent =
+            "You have to answer first 😏❤️";
+
+        return;
+    }
+
+
+    const q = questions[currentQuestion];
+
+
+    /*
+       Questions 2, 3 and 5 accept ANY answer.
+       Questions 1 and 4 require the correct answer.
+    */
+
+    if (q.answers.length > 0) {
+
+        const normalized =
+            answer.toLowerCase()
+            .replace(/\s+/g, "");
+
+        const correct =
+            q.answers.some(a =>
+                a.toLowerCase()
+                .replace(/\s+/g, "") === normalized
+            );
+
+        if (!correct) {
+
+            document.getElementById("message").textContent =
+                "Hmmmm... that's not the answer 😏 Try again ❤️";
+
+            return;
+        }
+    }
+
+
+    currentQuestion++;
+
+
+    if (currentQuestion >= questions.length) {
+
+        showFinal();
+
+    } else {
+
+        showQuestion();
+    }
+}
+
+
+function showFinal() {
+
+    document.getElementById("quizScreen")
+        .classList.add("hidden");
+
+    document.getElementById("finalScreen")
+        .classList.remove("hidden");
+
+}
+
+
+function restartPuzzle() {
+
+    currentQuestion = 0;
+
+    document.getElementById("finalScreen")
+        .classList.add("hidden");
+
+    document.getElementById("startScreen")
+        .classList.remove("hidden");
+}
+
+
+/*
+   Allow ENTER key to submit answers.
+*/
+
+document.getElementById("answer")
+.addEventListener("keydown", function(event) {
+
+    if (event.key === "Enter") {
+
+        submitAnswer();
+
+    }
+
+});
+
+</script></body>
+</html>
