@@ -1,213 +1,119 @@
-<!DOCTYPE html>
+CTYPE html>
 <html lang="en">
 	<head>
-		  <meta charset="UTF-8">
-		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="theme-color" content="#170019">
 
-		      <title>Our Little Secret ❤️</title>
+		<title>Our Little Secret ❤️</title>
 
-		        <style>
-    * {
-	          box-sizing: border-box;
-		        margin: 0;
-			      padding: 0;
-			          }
+<style>
+* {
+	    box-sizing: border-box;
+	        margin: 0;
+		    padding: 0;
+}
 
-        body {
-		      min-height: 100vh;
-		            font-family: Arial, sans-serif;
-			          background: linear-gradient(135deg, #16001f, #31001f, #08000d);
-				        color: white;
-					      display: flex;
-					            justify-content: center;
-						          align-items: center;
-							        padding: 20px;
-								    }
+body {
+	    min-height: 100vh;
+	        font-family: Arial, sans-serif;
+		    background:
+			            radial-gradient(circle at top, #4a003d 0%, #21001f 40%, #080008 100%);
+		        color: white;
+			    display: flex;
+			        justify-content: center;
+				    align-items: center;
+				        padding: 18px;
+}
 
-	    .container {
-		          width: 100%;
-			        max-width: 500px;
-				      background: rgba(20, 0, 25, 0.92);
-				            border: 1px solid rgba(255, 80, 150, 0.35);
-					          border-radius: 25px;
-						        padding: 28px 22px;
-							      box-shadow: 0 0 35px rgba(255, 0, 100, 0.25);
-							            text-align: center;
-								        }
+.container {
+	    width: 100%;
+	        max-width: 520px;
+		    background: rgba(20, 0, 25, 0.94);
+		        border: 1px solid rgba(255, 70, 150, 0.4);
+			    border-radius: 25px;
+			        padding: 28px 20px;
+				    box-shadow: 0 0 35px rgba(255, 0, 120, 0.25);
+				        text-align: center;
+}
 
-	        .heart {
-			      font-size: 55px;
-			            animation: beat 1.3s infinite;
-				          margin-bottom: 10px;
-					      }
+.heart {
+	    font-size: 55px;
+	        margin-bottom: 10px;
+		    animation: beat 1.3s infinite;
+}
 
-		    @keyframes beat {
-			          0%, 100% { transform: scale(1); }
-				        50% { transform: scale(1.18); }
-					    }
+@keyframes beat {
+	    0%, 100% {
+		            transform: scale(1);
+			        }
 
-		        h1 {
-				      font-size: 28px;
-				            margin-bottom: 8px;
-					        }
+	        50% {
+			        transform: scale(1.15);
+				    }
+}
 
-			    .subtitle {
-				          color: #ff9bc5;
-					        margin-bottom: 25px;
-						      line-height: 1.5;
-						          }
+h1 {
+	    font-size: 28px;
+	        margin-bottom: 10px;
+}
 
-			        .progress {
-					      margin-bottom: 20px;
-					            color: #ffb6d5;
-						          font-size: 14px;
-							      }
+.subtitle {
+	    color: #ffafd0;
+	        line-height: 1.6;
+		    margin-bottom: 25px;
+}
 
-				    .question-box {
-					          background: rgba(255, 255, 255, 0.06);
-						        border-radius: 18px;
-							      padding: 22px 16px;
-							            margin-bottom: 18px;
-								        }
+.start-screen {
+	    display: block;
+}
 
-				        .level {
-						      color: #ff6fae;
-						            font-size: 14px;
-							          font-weight: bold;
-								        margin-bottom: 12px;
-									      letter-spacing: 1px;
-									          }
+.game-screen {
+	    display: none;
+}
 
-					    .question {
-						          font-size: 20px;
-							        line-height: 1.5;
-								    }
+.final-screen {
+	    display: none;
+}
 
-					        input {
-							      width: 100%;
-							            padding: 15px;
-								          margin-top: 18px;
-									        border-radius: 12px;
-										      border: 1px solid #ff4f9a;
-										            background: #140014;
-											          color: white;
-												        font-size: 16px;
-													      outline: none;
-													          }
+.progress {
+	    color: #ff9bc5;
+	        font-size: 14px;
+		    margin-bottom: 15px;
+}
 
-						    input:focus {
-							          box-shadow: 0 0 12px rgba(255, 70, 150, 0.4);
-								      }
+.question-box {
+	    background: rgba(255, 255, 255, 0.06);
+	        border-radius: 18px;
+		    padding: 22px 16px;
+}
 
-						        button {
-								      width: 100%;
-								            padding: 15px;
-									          border: none;
-										        border-radius: 12px;
-											      background: linear-gradient(90deg, #ff287f, #ff4f4f);
-											            color: white;
-												          font-size: 17px;
-													        font-weight: bold;
-														      cursor: pointer;
-														            margin-top: 12px;
-															        }
+.level {
+	    color: #ff5fa8;
+	        font-weight: bold;
+		    font-size: 14px;
+		        letter-spacing: 1px;
+			    margin-bottom: 14px;
+}
 
-							    button:active {
-								          transform: scale(0.98);
-									      }
+.question {
+	    font-size: 20px;
+	        line-height: 1.55;
+		    margin-bottom: 10px;
+}
 
-							        .message {
-									      min-height: 24px;
-									            margin-top: 15px;
-										          color: #ff9bc5;
-											        line-height: 1.5;
-												    }
+input {
+	    width: 100%;
+	        padding: 15px;
+		    margin-top: 15px;
+		        border-radius: 12px;
+			    border: 1px solid #ff4f9a;
+			        background: #11000f;
+				    color: white;
+				        font-size: 16px;
+					    outline: none;
+}
 
-								    .find to you when...' ❤️",
-
-								      "What's one question you've always wanted to ask me but were scared to? 👀",
-
-								        "Describe me using only THREE words. 😏",
-
-									  "If we competed in a staring contest, who would lose first? 😂",
-
-									    "What do you miss most when we're not talking? 🥹",
-
-									      "Finish this sentence: 'No matter the distance, I still...' ❤️"
-
-									      ];
-
-									      let currentLevel = 0;
-
-									      function startGame() {
-
-										        currentLevel = 0;
-
-											  document.getElementById("startScreen").style.display = "none";
-											    document.getElementById("gameScreen").style.display = "block";
-
-											      showQuestion();
-
-									      }
-
-									      function showQuestion() {
-
-										        document.getElementById("level").textContent =
-											    "LEVEL " + (currentLevel + 1);
-
-											      document.getElementById("progress").textContent =
-											          "Level " + (currentLevel + 1) + " of " + questions.length;
-
-												    document.getElementById("question").textContent =
-												        questions[currentLevel];
-
-													  document.getElementById("answer").value = "";
-
-													    document.getElementById("message").textContent = "";
-
-													      document.getElementById("answer").focus();
-
-									      }
-
-
-									      function submitAnswer() {
-
-										        const input =
-											    document.getElementById("answer");
-
-											      const message =
-											          document.getElementById("message");
-
-												    const answer =
-												        input.value.trim();
-
-													  if (answer.length === 0) {
-
-														      message.textContent =
-														            "😂 You can't escape this one... type something!";
-
-															        return;
-
-																  }
-
-													    if (currentLevel < questions.length - 1) {
-
-														        message.textContent =
-															      "Hmmmm... interesting answer. 👀❤️";
-
-															          setTimeout(() => {
-
-																	        currentLevel++;
-
-																		      showQuestion();
-
-																		          }, 900);
-
-																		    } else {
-
-																			        document.getElementById("gameScreen").style.display =
-																				      "none";
-
-																				          document.getElementById("finalScreen").style.display =
-																					        "block";
+input:focus {
+	    box-shadow
 
